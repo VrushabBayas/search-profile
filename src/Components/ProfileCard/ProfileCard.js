@@ -38,7 +38,7 @@ const ProfileCard = ({ userProfiles }) => {
 									<div className="card-body">
 										<h3 className="card-title">{login}</h3>
 										<p>
-											Prfole Url :{' '}
+											Profile URL :{' '}
 											<a href={html_url} target="_blank">
 												{html_url}
 											</a>

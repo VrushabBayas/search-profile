@@ -16,7 +16,7 @@ const FetchRepos = ({ userName }) => {
 					<div class="col-sm-4">{repos[0].name}</div>
 					<div class="col-sm-4">{repos[0].language}</div>
 					<div class="col-sm-4">
-						<button type="button" class="btn btn-outline-info" onClick={onCollapseClick}>
+						<button type="button" class="btn btn-outline-info details-button" onClick={onCollapseClick}>
 							Details
 						</button>
 					</div>

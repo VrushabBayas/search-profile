@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import ReactPaginate from 'react-paginate';
@@ -24,6 +24,9 @@ const Pagignator = ({ pageCount, handlePageClick }) => {
 	);
 };
 
-Pagignator.propTypes = {};
+Pagignator.propTypes = {
+	pageCount: PropTypes.number,
+	handlePageClick: PropTypes.func
+};
 
 export default Pagignator;

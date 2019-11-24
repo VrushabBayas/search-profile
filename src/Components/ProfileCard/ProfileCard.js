@@ -26,7 +26,7 @@ const ProfileCard = ({ userProfiles }) => {
 				<div className="profile-card">
 					<label className="mt-3">Total Results:{total_count}</label>
 				</div>
-				{items.slice(offset, 3 + offset).map((profile) => {
+				{items.slice(offset, 5 + offset).map((profile) => {
 					const { login, html_url, avatar_url } = profile;
 					return (
 						<div className="card mb-3 mt-3 profile-card" key={uuid()}>

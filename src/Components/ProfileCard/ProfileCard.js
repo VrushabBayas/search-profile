@@ -3,16 +3,21 @@ import uuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 
 import './Style.css';
-import { isObjectEmpty } from '../../Utils/utility';
+
+import UserRepos from './UserRepos';
 import Pagignator from '../Paginator/Paginator';
+
+import { isObjectEmpty } from '../../Utils/utility';
+
 const ProfileCard = ({ userProfiles }) => {
 	const [ offset, setOffset ] = useState(0);
 
 	const handlePageClick = (data) => {
 		let selected = data.selected;
-		let offset = Math.ceil(selected * 1);
+		let offset = Math.ceil(selected * 3);
 		setOffset(offset);
 	};
+
 	if (!isObjectEmpty(userProfiles)) {
 		const { total_count, items } = userProfiles;
 		const pageCount = items.length;
@@ -22,22 +27,23 @@ const ProfileCard = ({ userProfiles }) => {
 					<label className="mt-3">Total Results:{total_count}</label>
 				</div>
 				{items.slice(offset, 3 + offset).map((profile) => {
+					const { login, html_url, avatar_url } = profile;
 					return (
 						<div className="card mb-3 mt-3 profile-card" key={uuid()}>
 							<div className="row no-gutters">
 								<div className="col-md-4 col-lg-2">
-									<img src="..." className="card-img" alt="..." />
+									<img src={avatar_url} className="card-img" alt="avtar" />
 								</div>
 								<div className="col-md-8 col-lg-10">
 									<div className="card-body">
-										<h5 className="card-title">Card title</h5>
-										<p className="card-text">
-											This is a wider card with supporting text below as a natural lead-in to
-											additional content. This content is a little bit longer.
+										<h3 className="card-title">{login}</h3>
+										<p>
+											Prfole Url :{' '}
+											<a href={html_url} target="_blank">
+												{html_url}
+											</a>
 										</p>
-										<p className="card-text">
-											<small className="text-muted">Last updated 3 mins ago</small>
-										</p>
+										<UserRepos userName={login} />
 									</div>
 								</div>
 							</div>

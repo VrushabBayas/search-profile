@@ -1,4 +1,15 @@
+/*
+ * Filename: UserRepos.js
+* Created Date: Sunday, November 24th 2019, 10:05:43 am
+ * Author: vrushabBayas
+ * @desc:To display repo's of user
+ */
+
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import uuid from 'uuid/v4';
+
 import { useFetch } from '../../Actions/hooks';
 import './Style.css';
 const FetchRepos = ({ userName }) => {
@@ -27,7 +38,7 @@ const FetchRepos = ({ userName }) => {
 							const { name, language } = repo;
 							return (
 								<React.Fragment>
-									<div class="row">
+									<div class="row" key={uuid()}>
 										<div class="col-sm-4">{name}</div>
 										<div class="col-sm-4">{language}</div>
 									</div>
@@ -41,6 +52,9 @@ const FetchRepos = ({ userName }) => {
 	} else {
 		return null;
 	}
+};
+FetchRepos.propTypes = {
+	userName: PropTypes.string
 };
 
 export default FetchRepos;

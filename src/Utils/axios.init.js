@@ -7,9 +7,8 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-	withCredentials: false,
-	baseURL: 'https://api.github.com'
-	// timeout: 2000
+	baseURL: 'https://api.github.com',
+	timeout: 5000
 });
 
 export const API_RESPONSE_CODE = {

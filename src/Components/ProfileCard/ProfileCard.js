@@ -21,6 +21,13 @@ const ProfileCard = ({ userProfiles }) => {
 	if (!isObjectEmpty(userProfiles)) {
 		const { total_count, items } = userProfiles;
 		const pageCount = items.length;
+		if (pageCount === 0) {
+			return (
+				<div className="profile-cardcontainer">
+					<h3 className="text-center">No result Found</h3>
+				</div>
+			);
+		}
 		return (
 			<div className="profile-cardcontainer">
 				<div className="profile-card">
@@ -39,7 +46,7 @@ const ProfileCard = ({ userProfiles }) => {
 										<h3 className="card-title">{login}</h3>
 										<p>
 											Profile URL :{' '}
-											<a href={html_url} target="_blank">
+											<a href={html_url} rel="noopener noreferrer" target="_blank">
 												{html_url}
 											</a>
 										</p>

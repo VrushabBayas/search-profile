@@ -1,0 +1,10 @@
+.profile-cardcontainer {
+	align-content: center;
+	background-color: #d3d3d3;
+	padding: 1em;
+}
+.profile-card {
+	margin: auto;
+	height: auto;
+	width: 70%;
+}

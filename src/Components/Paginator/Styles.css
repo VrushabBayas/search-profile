@@ -1,0 +1,9 @@
+.paginator {
+	background: white;
+	width: 70%;
+	margin: 0em 10em;
+}
+.paginator li {
+	margin: auto;
+	padding: inherit;
+}

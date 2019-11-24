@@ -3,6 +3,9 @@
   "env": {
     "browser": true
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "indent": ["error", "tab", { "MemberExpression": 0, "SwitchCase": 1 }],
     "no-multiple-empty-lines": [
@@ -24,6 +27,8 @@
       }
     ],
     "class-methods-use-this": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

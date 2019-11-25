@@ -5,6 +5,7 @@ import _ from 'lodash';
 import './Style.css';
 
 import ProfileCard from '../ProfileCard/ProfileCard';
+import { strings } from '../../Utils/Constants';
 
 const SearchProfile = () => {
 	let url = '';
@@ -57,10 +58,10 @@ const SearchProfile = () => {
 					<div className="collapse navbar-collapse navbarSupportedContent" id="navbarSupportedContent">
 						<form className="form-inline my-2 my-lg-0">
 							<select className="custom-select search" value={sortType} onChange={handleOnChange}>
-								<option value="asc">Sort by Name(A-Z)</option>
-								<option value="desc">Sort by Name(Z-A)</option>
-								<option value="topScore">Rank top</option>
-								<option value="lessScore">Rank down</option>
+								<option value="asc">{strings.A_Z}</option>
+								<option value="desc">{strings.Z_A}</option>
+								<option value="topScore">{strings.TOP}</option>
+								<option value="lessScore">{strings.DOWN}</option>
 							</select>
 							<input
 								className="form-control mr-sm-2 search"

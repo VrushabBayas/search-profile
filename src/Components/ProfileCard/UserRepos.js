@@ -12,6 +12,7 @@ import uuid from 'uuid/v4';
 
 import { useFetch } from '../../Actions/hooks';
 import './Style.css';
+import { strings } from '../../Utils/Constants';
 const FetchRepos = ({ userName }) => {
 	const [ collapse, setCollapse ] = useState(true);
 	let url = `/users/${userName}/repos`;
@@ -27,11 +28,11 @@ const FetchRepos = ({ userName }) => {
 					<thead>
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">Repo</th>
-							<th scope="col">Language</th>
-							<th scope="col">Open issues</th>
-							<th scope="col">Watchers</th>
-							<th scope="col">Fork Count</th>
+							<th scope="col">{strings.REPO}</th>
+							<th scope="col">{strings.LANGUAGE}</th>
+							<th scope="col">{strings.OPEN_ISSUES}</th>
+							<th scope="col">{strings.WATCHERS}</th>
+							<th scope="col">{strings.FORK_COUNT}</th>
 							<th scope="col">
 								<button
 									type="button"
@@ -69,7 +70,7 @@ const FetchRepos = ({ userName }) => {
 						</tbody>
 					)}
 				</table>
-				{repos.length === 1 && !collapse && <p className="ma info">only one record available</p>}
+				{repos.length === 1 && !collapse && <p className="ma info">{strings.SINGLE_RECORD}</p>}
 			</React.Fragment>
 		);
 	} else {

@@ -1,3 +1,9 @@
+/*
+ * Filename:Pagination.js
+ * Created Date: Sunday, November 24th 2019, 7:57:23 am
+ * Author: vrushabh Bayas
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 

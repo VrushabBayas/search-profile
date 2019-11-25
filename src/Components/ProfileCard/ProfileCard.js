@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import uuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 
+import uuid from 'uuid/v4';
+import _ from 'lodash';
 import './Style.css';
 
 import UserRepos from './UserRepos';
 import Paginatation from '../Paginator/Pagination';
 
-import { isObjectEmpty } from '../../Utils/utility';
+import { strings } from '../../Utils/Constants';
 
 const ProfileCard = ({ userProfiles }) => {
 	const [ offset, setOffset ] = useState(0);
@@ -18,20 +19,22 @@ const ProfileCard = ({ userProfiles }) => {
 		setOffset(offset);
 	};
 
-	if (!isObjectEmpty(userProfiles)) {
+	if (!_.isEmpty(userProfiles)) {
 		const { total_count, items } = userProfiles;
 		const pageCount = items.length;
 		if (pageCount === 0) {
 			return (
 				<div className="profile-cardcontainer">
-					<h3 className="text-center">No result Found</h3>
+					<h3 className="text-center">{strings.NO_RESUL_FOUND}</h3>
 				</div>
 			);
 		}
 		return (
 			<div className="profile-cardcontainer">
 				<div className="ma w85">
-					<label>Total Results:{total_count}</label>
+					<label>
+						{strings.TOTAL_RESULTS}:{total_count}
+					</label>
 				</div>
 				{items.slice(offset, 5 + offset).map((profile) => {
 					const { login, html_url, avatar_url } = profile;
@@ -63,7 +66,7 @@ const ProfileCard = ({ userProfiles }) => {
 	} else {
 		return (
 			<div className="profile-cardcontainer">
-				<h3 className="text-center">Please Enter name to search</h3>
+				<h3 className="text-center">{strings.ENTER_NAME}</h3>
 			</div>
 		);
 	}

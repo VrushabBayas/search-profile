@@ -3,11 +3,16 @@
   "env": {
     "browser": true
   },
+  "extends": ["prettier"],
   "plugins": [
-    "react-hooks"
+    "airbnb",
+    "react-hooks",
+    "prettier"
   ],
   "rules": {
-    "indent": ["error", "tab", { "MemberExpression": 0, "SwitchCase": 1 }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "indent": ["error", 2, { "MemberExpression": 0, "SwitchCase": 1 }],
     "no-multiple-empty-lines": [
       "error",
       {
@@ -26,9 +31,8 @@
         "props": false
       }
     ],
+    "prettier/prettier": ["error"],
     "class-methods-use-this": 0,
-    "linebreak-style": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "linebreak-style": 0
   }
 }

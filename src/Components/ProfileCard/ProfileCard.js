@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './Style.css';
 
 import UserRepos from './UserRepos';
-import Pagignator from '../Paginator/Paginator';
+import Paginatation from '../Paginator/Pagination';
 
 import { isObjectEmpty } from '../../Utils/utility';
 
@@ -57,7 +57,7 @@ const ProfileCard = ({ userProfiles }) => {
 						</div>
 					);
 				})}
-				<Pagignator pageCount={pageCount} handlePageClick={handlePageClick} />
+				<Paginatation pageCount={pageCount} handlePageClick={handlePageClick} />
 			</div>
 		);
 	} else {

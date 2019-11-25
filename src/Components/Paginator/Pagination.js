@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 
 import './Styles.css';
-const Pagignator = ({ pageCount, handlePageClick }) => {
+const Paginatation = ({ pageCount, handlePageClick }) => {
 	return (
 		<div className="paginator">
 			<ReactPaginate
@@ -24,9 +24,9 @@ const Pagignator = ({ pageCount, handlePageClick }) => {
 	);
 };
 
-Pagignator.propTypes = {
+Paginatation.propTypes = {
 	pageCount: PropTypes.number,
 	handlePageClick: PropTypes.func
 };
 
-export default Pagignator;
+export default Paginatation;

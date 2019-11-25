@@ -15,7 +15,7 @@ const ProfileCard = ({ userProfiles }) => {
 
 	const handlePageClick = (data) => {
 		let selected = data.selected;
-		let offset = Math.ceil(selected * 3);
+		let offset = Math.ceil(selected * 5);
 		setOffset(offset);
 	};
 

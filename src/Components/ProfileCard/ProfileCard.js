@@ -30,13 +30,13 @@ const ProfileCard = ({ userProfiles }) => {
 		}
 		return (
 			<div className="profile-cardcontainer">
-				<div className="profile-card">
-					<label className="mt-3">Total Results:{total_count}</label>
+				<div className="ma w70">
+					<label>Total Results:{total_count}</label>
 				</div>
 				{items.slice(offset, 5 + offset).map((profile) => {
 					const { login, html_url, avatar_url } = profile;
 					return (
-						<div className="card mb-3 mt-3 profile-card" key={uuid()}>
+						<div className="card mb-3 mt-3 ma w70" key={uuid()}>
 							<div className="row no-gutters">
 								<div className="col-md-4 col-lg-2">
 									<img src={avatar_url} className="card-img" alt="avtar" />

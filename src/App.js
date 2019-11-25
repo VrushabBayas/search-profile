@@ -7,12 +7,12 @@
 
 import React from 'react';
 import './App.css';
-import SearchBar from './Components/SearchBar/SearchBar';
+import SearchProfile from './Components/SearchProfile/SearchProfile';
 
 function App() {
 	return (
-		<div className="container">
-			<SearchBar />
+		<div className="App">
+			<SearchProfile />
 		</div>
 	);
 }

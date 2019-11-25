@@ -12,11 +12,18 @@ export const useFetch = (url, initialValue) => {
 		() => {
 			let isValidURL = /\s/.test(url);
 			if (!isValidURL) {
-				axios.get(url).then((response) => {
-					if (response.status === 200) {
-						setResult(response.data);
-					}
-				});
+				axios
+					.get(url)
+					.then((response) => {
+						console.log('response: ', response);
+						if (response.status === 200) {
+							setResult(response.data);
+						}
+					})
+					.catch((error) => {
+						console.log('error: ', error);
+						//TODO:ERROR Handling
+					});
 			}
 		},
 		[ url ]

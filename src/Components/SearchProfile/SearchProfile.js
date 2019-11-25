@@ -5,8 +5,8 @@ import _ from 'lodash';
 import './Style.css';
 
 import ProfileCard from '../ProfileCard/ProfileCard';
-import { response } from '../data';
-const SearchBar = () => {
+
+const SearchProfile = () => {
 	let url = '';
 	const [ userProfileQuery, setUserProfileQuery ] = useState(' ');
 	const [ sortType, setSortType ] = useState('forward');
@@ -20,14 +20,20 @@ const SearchBar = () => {
 		() => {
 			let isValidURL = /\s/.test(url);
 			if (!isValidURL) {
-				axios.get(url).then((response) => {
-					if (response.status === 200) {
-						setUserProfiles(response.data);
-					}
-				});
+				axios
+					.get(url)
+					.then((response) => {
+						if (response.status === 200) {
+							setUserProfiles(response.data);
+						}
+					})
+					.catch((error) => {
+						console.log('error: ', error);
+						//TODO:ERROR HANDLING
+					});
 			}
 		},
-		[ userProfileQuery ]
+		[ userProfileQuery, url ]
 	);
 	const updateUserProfileQuery = (event) => {
 		setUserProfileQuery(event.target.value);
@@ -67,9 +73,9 @@ const SearchBar = () => {
 					</div>
 				</nav>
 			</div>
-			{<ProfileCard userProfiles={userProfiles} />}
+			<ProfileCard userProfiles={userProfiles} />
 		</React.Fragment>
 	);
 };
 
-export default SearchBar;
+export default SearchProfile;

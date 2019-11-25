@@ -18,7 +18,7 @@ const ProfileCard = ({ userProfiles }) => {
 		let offset = Math.ceil(selected * 5);
 		setOffset(offset);
 	};
-
+	//check for empty object
 	if (!_.isEmpty(userProfiles)) {
 		const { total_count, items } = userProfiles;
 		const pageCount = items.length;

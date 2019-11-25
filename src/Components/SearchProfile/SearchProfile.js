@@ -12,11 +12,7 @@ const SearchProfile = () => {
 	const [ userProfileQuery, setUserProfileQuery ] = useState(' ');
 	const [ sortType, setSortType ] = useState('forward');
 	const [ userProfiles, setUserProfiles ] = useState({});
-	if (sortType === 'asc' || sortType === 'desc') {
-		url = `/search/users?q=${userProfileQuery}&order=${sortType}`;
-	} else {
-		url = `/search/users?q=${userProfileQuery}`;
-	}
+	url = `/search/users?q=${userProfileQuery}`;
 	useEffect(
 		() => {
 			let isValidURL = /\s/.test(url);
@@ -42,6 +38,7 @@ const SearchProfile = () => {
 	const handleOnChange = (event) => {
 		setSortType(event.target.value);
 		let orderedProfile = userProfiles;
+		//sorting of records based on selected value
 		if (event.target.value === 'topScore') {
 			orderedProfile['items'] = _.orderBy(orderedProfile['items'], [ 'score' ], [ 'desc' ]);
 		} else if (event.target.value === 'lessScore') {
